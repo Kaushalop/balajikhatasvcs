@@ -1,0 +1,24 @@
+name: Deploy to Google Cloud App Engine
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Google Cloud
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to App Engine
+        id: deploy
+        uses: google-github-actions/deploy-appengine@v0.2.0
+        with:
+          credentials: '${{ secrets.GOOGLE_CREDENTIALS }}'
+    
+      - name: Ping deployment
+        run: curl "${{ steps.deploy.outputs.url }}/ping"
