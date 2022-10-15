@@ -1,1 +1,12 @@
-runtime: nodejs14
+runtime: nodejs
+env: flex
+
+# run a single instance with the spceified resources
+manual_scaling:
+  instances: 1
+
+# REVIEW: determine resource sizes, this is just based on the example currently
+resources:
+  cpu: 2
+  memory_gb: 2
+  disk_size_gb: 10
