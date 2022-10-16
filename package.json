@@ -39,5 +39,8 @@
     "spdy": "^3.4.7",
     "supertest": "^3.1.0",
     "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
   }
 }
